@@ -1,68 +1,315 @@
+/* =========================================
+   1. LOCKED SPECIFICATION (Source: PDF Pages 3-4)
+   DO NOT MODIFY THIS BLOCK
+   ========================================= */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --black: #111111;
+  --gray: #666666;
+  --border-light: #E6E6E6;
+  --accent: #0B5ED7;
 }
 
-a {
+/* Source: 53-58 */
+.aan-masthead {
+  width: 100%;
+  height: 72px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  position: sticky; /* Modern UX preference */
+  top: 0;
+  z-index: 1000;
+}
+
+/* Source: 59-68 */
+.aan-masthead-inner {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-primary);
+}
+
+/* LOGO - Source: 70-76 */
+.aan-logo a {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* NAVIGATION - Source: 78-81 */
+.aan-nav {
+  display: flex;
+  gap: 28px;
+}
+
+/* Source: 82-88 */
+.aan-nav a {
+  font-size: 15px;
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: var(--black);
+  text-decoration: none;
+  position: relative;
 }
 
+/* Source: 89-91 */
+.aan-nav a:hover {
+  text-decoration: underline;
+}
+
+/* CTA - Source: 93-101 */
+.aan-cta a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent);
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* MOBILE MENU TOGGLE - Source: 103-109 */
+.aan-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--black);
+}
+
+/* MOBILE RULES - Source: 111-128 */
+@media (max-width: 768px) {
+  .aan-masthead {
+    height: 56px;
+  }
+  .aan-nav {
+    display: none;
+  }
+  .aan-cta {
+    display: none;
+  }
+  .aan-menu-toggle {
+    display: block;
+  }
+  .aan-logo a {
+    font-size: 20px;
+  }
+  
+  /* Mobile Menu Drawer (Modern addition for functionality) */
+  .aan-nav.mobile-active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+}
+
+/* =========================================
+   2. GLOBAL & LAYOUT STYLES
+   ========================================= */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-primary);
+  background-color: #FAFAFA;
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.aan-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+/* Hero Section */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.hero-image-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #ddd;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 16px 0;
+}
+
+.hero-excerpt {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.category-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.read-more {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 2px;
+}
+
+/* Grid Layout */
+.content-divider {
+  border-top: 1px solid var(--border-light);
+  margin: 0 0 40px 0;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  border-top: 2px solid var(--black);
+  padding-top: 12px;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.news-card .card-image {
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  margin-bottom: 12px;
+  border-radius: 2px;
+}
+
+.card-meta {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 8px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.news-card h4 {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* Sidebar */
+.sidebar-widget {
+  margin-bottom: 48px;
+}
+
+.opinion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.opinion-list li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 20px;
+}
+
+.opinion-list .author {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.opinion-list a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  display: block;
+}
+
+.search-box {
+  display: flex;
+  border: 1px solid var(--border-light);
+  padding: 8px;
+}
+
+.search-box input {
+  border: none;
+  width: 100%;
+  outline: none;
+  font-family: var(--font-primary);
+  font-size: 14px;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray);
+}
+
+.aan-footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid var(--border-light);
+  color: var(--gray);
+  font-size: 13px;
+  margin-top: 60px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-section { grid-template-columns: 1fr; }
+  .grid-layout { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
 }
