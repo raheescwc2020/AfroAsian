@@ -1,8 +1,6 @@
 /* =========================================
-   1. LOCKED SPECIFICATION (Source: PDF Pages 3-4)
-   DO NOT MODIFY THIS BLOCK
+   1. LOCKED SPECIFICATION (Base Variables)
    ========================================= */
-
 :root {
   --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --black: #111111;
@@ -11,115 +9,245 @@
   --accent: #0B5ED7;
 }
 
-/* Source: 53-58 */
+/* =========================================
+   2. MASTHEAD LAYOUT
+   ========================================= */
+
 .aan-masthead {
   width: 100%;
-  height: 72px;
+  height: auto;
+  min-height: 80px;
   background: #ffffff;
   border-bottom: 1px solid var(--border-light);
-  position: sticky; /* Modern UX preference */
+  position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 12px 0;
 }
 
-/* Source: 59-68 */
 .aan-masthead-inner {
   max-width: 1280px;
-  height: 100%;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-family: var(--font-primary);
+  position: relative; 
 }
 
-/* LOGO - Source: 70-76 */
-.aan-logo a {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--black);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-}
-
-/* NAVIGATION - Source: 78-81 */
-.aan-nav {
-  display: flex;
-  gap: 28px;
-}
-
-/* Source: 82-88 */
-.aan-nav a {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--black);
-  text-decoration: none;
-  position: relative;
-}
-
-/* Source: 89-91 */
-.aan-nav a:hover {
-  text-decoration: underline;
-}
-
-/* CTA - Source: 93-101 */
-.aan-cta a {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  background: var(--accent);
-  padding: 8px 14px;
-  border-radius: 4px;
-  text-decoration: none;
-}
-
-/* MOBILE MENU TOGGLE - Source: 103-109 */
-.aan-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  color: var(--black);
-}
-
-/* MOBILE RULES - Source: 111-128 */
-@media (max-width: 768px) {
-  .aan-masthead {
-    height: 56px;
+/* --- DESKTOP LAYOUT (Default) --- */
+@media (min-width: 769px) {
+  .aan-masthead-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .aan-nav {
-    display: none;
-  }
-  .aan-cta {
-    display: none;
-  }
-  .aan-menu-toggle {
-    display: block;
-  }
-  .aan-logo a {
-    font-size: 20px;
+
+  .aan-logo {
+    margin-bottom: 10px;
+    text-align: center;
   }
   
-  /* Mobile Menu Drawer (Modern addition for functionality) */
+  .aan-logo a {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.04em;
+    display: block;
+  }
+
+  .aan-nav {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .aan-nav a {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    text-decoration: none;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 4px;
+  }
+
+  .aan-right-panel {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .aan-subscribe-btn {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--black);
+    padding: 6px 12px;
+    border-radius: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  .aan-mini-search {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 2px;
+    width: 120px;
+  }
+
+  .aan-mini-search input {
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    width: 100%;
+    outline: none;
+    color: var(--black);
+    font-family: var(--font-primary);
+  }
+
+  .aan-mini-search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+  }
+
+  .aan-menu-toggle, .aan-mobile-search-toggle {
+    display: none;
+  }
+}
+
+/* --- MOBILE LAYOUT (< 768px) --- */
+@media (max-width: 768px) {
+  .aan-masthead {
+    height: 60px;
+    padding: 0;
+  }
+  
+  .aan-masthead-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .aan-logo a {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  /* Hide Desktop Elements */
+  .aan-nav, .aan-right-panel {
+    display: none;
+  }
+
+  /* Show Mobile Controls */
+  .aan-menu-toggle, .aan-mobile-search-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--black);
+    z-index: 1001; /* Ensure toggle stays above the drawer */
+  }
+  
+  /* === MOBILE DRAWER (UPDATED) === */
   .aan-nav.mobile-active {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 56px;
+    top: 60px; /* Aligns right below the header bar */
     left: 0;
-    width: 100%;
-    background: white;
-    padding: 20px;
-    border-bottom: 1px solid var(--border-light);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    
+    /* 1. WIDTH 300px */
+    width: 300px;
+    /* Prevent overflow on very small screens */
+    max-width: 85vw; 
+    
+    /* 2. BACKGROUND BLACK & FULL HEIGHT */
+    background: #000000;
+    height: calc(100vh - 60px); 
+    
+    padding: 20px 0;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3); /* Shadow to separate from content */
+    z-index: 999;
+  }
+  
+  .aan-nav.mobile-active a {
+    /* 3. ALIGNMENT: LEFT */
+    text-align: left;
+    padding: 15px 30px; /* Generous padding for alignment */
+    
+    /* 4. FONT WHITE & NO LINK STYLES */
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    
+    /* Subtle separator for black bg (optional, remove border-bottom if you want pure black) */
+    border-bottom: 1px solid #222222;
+  }
+
+  /* Optional hover effect for mobile */
+  .aan-nav.mobile-active a:hover {
+    background-color: #1a1a1a;
   }
 }
 
+
 /* =========================================
-   2. GLOBAL & LAYOUT STYLES
+   3. EXTRA CSS (VIDEO HOVER EFFECT - Desktop Only)
+   ========================================= */
+@media (min-width: 769px) {
+  .aan-nav a:hover {
+    text-decoration: none;
+  }
+
+  .aan-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; 
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: var(--accent);
+  }
+
+  .aan-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .aan-nav .nav-policy::after { background-color: #0B5ED7; }
+  .aan-nav .nav-diplomacy::after { background-color: #D93025; }
+  .aan-nav .nav-economy::after { background-color: #F9AB00; }
+  .aan-nav .nav-opinion::after { background-color: #188038; }
+  .aan-nav .nav-events::after { background-color: #A142F4; }
+}
+
+
+/* =========================================
+   4. BODY / GLOBAL STYLES (PRESERVED)
    ========================================= */
 body {
   margin: 0;
@@ -135,7 +263,6 @@ body {
   padding: 40px 20px;
 }
 
-/* Hero Section */
 .hero-section {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -190,7 +317,6 @@ body {
   padding-bottom: 2px;
 }
 
-/* Grid Layout */
 .content-divider {
   border-top: 1px solid var(--border-light);
   margin: 0 0 40px 0;
@@ -214,7 +340,6 @@ body {
   text-transform: uppercase;
 }
 
-/* Cards */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -243,7 +368,6 @@ body {
   font-weight: 600;
 }
 
-/* Sidebar */
 .sidebar-widget {
   margin-bottom: 48px;
 }
@@ -277,6 +401,7 @@ body {
   display: block;
 }
 
+/* Body Search Box */
 .search-box {
   display: flex;
   border: 1px solid var(--border-light);
@@ -307,7 +432,6 @@ body {
   margin-top: 60px;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .hero-section { grid-template-columns: 1fr; }
   .grid-layout { grid-template-columns: 1fr; }
