@@ -70,7 +70,7 @@ const Header = () => {
 
         {/* 4. RIGHT PANEL (Desktop Only) */}
         <div className="aan-right-panel">
-          <Link to="/subscribe" className="aan-subscribe-btn">Subscribe</Link>
+          
           <div className="aan-mini-search">
             <input type="text" placeholder="Search" />
             <button><SearchIcon /></button>
