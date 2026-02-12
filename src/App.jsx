@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
-
+import Footer from './components/Footer';
 // Placeholder for other pages to prevent errors
 const Placeholder = ({ title }) => (
   <div className="aan-main">
@@ -24,9 +24,7 @@ const App = () => {
           <Route path="/opinion" element={<Placeholder title="Opinion" />} />
           <Route path="/events" element={<Placeholder title="Events" />} />
         </Routes>
-        <footer className="aan-footer">
-          <p>&copy; 2026 AfroAsianNews. Bridging Continents.</p>
-        </footer>
+       <Footer/>
       </div>
     </Router>
   );
