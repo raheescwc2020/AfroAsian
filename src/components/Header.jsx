@@ -59,7 +59,7 @@ const Header = () => {
              </div>
 
              {/* Links */}
-              <Link to="/" className="nav-item" onClick={closeMenu}>Home</Link>
+              <Link to="/policy" className="nav-item" onClick={closeMenu}>Home</Link>
              <Link to="/policy" className="nav-item" onClick={closeMenu}>Policy</Link>
              <Link to="/diplomacy" className="nav-item" onClick={closeMenu}>Diplomacy</Link>
              <Link to="/economy" className="nav-item" onClick={closeMenu}>Economy</Link>
@@ -67,11 +67,7 @@ const Header = () => {
              <Link to="/events" className="nav-item" onClick={closeMenu}>Events</Link>
              
              {/* Mobile Socials */}
-             <div className="mobile-only mobile-socials">
-                <a href="https://facebook.com"><FbIcon /></a>
-                <a href="https://instagram.com"><InstaIcon /></a>
-                <a href="https://youtube.com"><YtIcon /></a>
-             </div>
+             
           </nav>
 
           {/* C. DESKTOP SEARCH BOX (Right Side) */}
@@ -92,6 +88,6 @@ const Header = () => {
 
     </header>
   );
-};
+};  
 
 export default Header;

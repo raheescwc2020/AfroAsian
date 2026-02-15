@@ -42,20 +42,7 @@ const Footer = () => {
         </div>
 
         {/* --- SECTION 3: SOCIAL MEDIA --- */}
-        <div className="aan-footer-socials">
-          <h4>Follow Us</h4>
-          <div className="social-icons-row">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-              <FbIcon />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-              <InstaIcon />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
-              <YtIcon />
-            </a>
-          </div>
-        </div>
+      
 
       </div>
 
