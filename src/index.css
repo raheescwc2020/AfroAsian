@@ -27,11 +27,9 @@
   font-family: var(--font-primary);
 }
 
-
-
 .aan-logo-panel {
   background-color: var(--logo-panel-bg);
-  /* Increased vertical padding to give the logo room to breathe */
+  /* Increased vertical padding to give the logo room to breathe on Desktop */
   padding-top: 20px; 
   padding-bottom: 20px;
   width: 100%;
@@ -46,19 +44,11 @@
   margin: 0 auto;
 }
 
-/* .aan-logo-img {
-  /* Rule 3: Keep logo size unchanged 
-  height: 72px;
-  width: auto;
-  display: block;
-} */
-
 .aan-logo-img {
-  /* INCREASED HEIGHT: Changed from 72px to 90px (or 100px) */
+  /* Desktop Height */
   height: 90px; 
   width: auto;
   display: block;
-  /* Ensure it fits on smaller screens without distortion */
   max-width: 100%;
   object-fit: contain;
 }
@@ -148,31 +138,10 @@
    ========================================= */
 @media (max-width: 768px) {
   .aan-logo-panel { 
-    /* Revised Padding for Mobile Height Discipline */
-    padding-top: 15px; 
-    padding-bottom: 8px;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    /* Reduced min-height to tighten mobile header */
-    min-height: auto; 
-  }
-
-  
-/*
-  .aan-logo-img { 
-    height: 72px; 
-    width: auto;
-    object-fit: contain;
-  }*/
-
-
-
-  .aan-logo-panel { 
-    /* Slightly reduced vertical padding to compensate for the larger logo */
-    /* This keeps the overall header height "disciplined" */
-    padding-top: 12px; 
-    padding-bottom: 12px;
+    /* CHANGED: Reduced padding from 12px to 10px (Total 4px saved) */
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    
     display: flex;
     align-items: center; 
     justify-content: center;
@@ -180,8 +149,9 @@
   }  
 
   .aan-logo-img { 
-    /* INCREASED HEIGHT: Moved from 72px to 84px for better text readability */
-    height: 84px; 
+    /* CHANGED: Reduced height from 72px to 66px (6px saved) */
+    /* Total reduction (padding + img) = ~10px */
+    height: 66px; 
     
     /* SCALE WIDTH: Allows the logo to stretch wider on mobile */
     width: auto;
@@ -475,7 +445,6 @@ p, .hero-excerpt {
 /* =========================================
    8. FOOTER
    ========================================= */
-/* ... (Footer styles kept largely same, ensuring fonts inherit) ... */
 .aan-footer {
   text-align: center;
   padding: 60px 20px;
