@@ -1,6 +1,7 @@
 import React from 'react';
-import goldImage from '../assets/Gold/GOLD_SERIES_HERO.png';
+import goldImage from '@/assets/Gold/GOLD_SERIES_HERO.png';
 const ArticleGold = () => {
+  
   return (
     <main className="aan-article-container">
       {/* 6. Meta Elements - Must not compete with headline */}
