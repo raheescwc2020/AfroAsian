@@ -1,5 +1,5 @@
 import React from 'react';
-import goldImage from '@/assets/Gold/GOLD_SERIES_HERO.png';
+import goldImage from '@/assets/Gold/gold_series.png';
 const ArticleGold = () => {
   
   return (
